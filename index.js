@@ -18,6 +18,10 @@ app.use(cors());
 
 app.use(express.json());
 
+app.get("/", (req, res) =>
+  res.send(`Server is Running`)
+);
+
 mongo.connect();
 
 app.use('/user', registerRouter);
