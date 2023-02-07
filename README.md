@@ -1,3 +1,0 @@
-MONEY MANAGER 
-
-Backend Code
