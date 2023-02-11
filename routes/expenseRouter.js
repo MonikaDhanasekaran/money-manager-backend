@@ -32,7 +32,7 @@ router.get('/getOne/:dataID', (req, res) => {
     }
 });
 
-router.post("/createExpense", auth.authenticateUser, async(req,res)=>{
+router.post("/create", auth.authenticateUser, async(req,res)=>{
     try{
         const payload = req.body;
         const newData = new expense(payload);
@@ -47,7 +47,7 @@ router.post("/createExpense", auth.authenticateUser, async(req,res)=>{
     }
 });
 
-router.put("/updateExpense/:dataID", auth.authenticateUser, (req,res)=>{
+router.put("/update/:dataID", auth.authenticateUser, (req,res)=>{
     try{
         expense.findByIdAndUpdate({ _id: req.params.dataID }, { $set: req.body }, (err,data)=>{
             if(err){
