@@ -16,6 +16,22 @@ router.get("/get", (req,res)=>{
     }
 });
 
+router.get('/getOne/:dataID', (req, res) => {
+    try{
+        expense.findOne({_id: req.params.dataID}, (err, data) => {
+            if(err){
+                return res.status(400).send({message: 'Error while retrieving an data. Please check the data'})
+            }
+
+            res.status(200).send(data);
+        })
+    }catch(error){
+        res.status(500).send({
+            message: 'Internal Server Error'
+        })
+    }
+});
+
 router.post("/create", auth.authenticateUser, async(req,res)=>{
     try{
         const payload = req.body;
