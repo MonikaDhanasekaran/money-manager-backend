@@ -18,7 +18,7 @@ router.get("/get", (req,res)=>{
 
 router.get('/getOne/:dataID', (req, res) => {
     try{
-        Employees.findOne({_id: req.params.dataID}, (err, data) => {
+        income.findOne({_id: req.params.dataID}, (err, data) => {
             if(err){
                 return res.status(400).send({message: 'Error while retrieving an data. Please check the data'})
             }
